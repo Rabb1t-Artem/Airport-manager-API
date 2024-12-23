@@ -20,6 +20,10 @@ class Route(models.Model):
 class Crew(models.Model):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
+    
+    @property
+    def full_name(self):
+        return f"{self.first_name} {self.last_name}"
 
 
 class AirplaneType(models.Model):
@@ -31,6 +35,10 @@ class Airplane(models.Model):
     rows = models.IntegerField()
     seats_in_row = models.IntegerField()
     airplane_type = models.ForeignKey(AirplaneType, on_delete=models.CASCADE)
+    
+    @property
+    def capacity(self):
+        return self.rows * self.seats_in_row
 
 
 class Flight(models.Model):
