@@ -170,5 +170,8 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 
-# Other
+# vscode
+.vscode/
+
+# pytest
 syntax-test.py
